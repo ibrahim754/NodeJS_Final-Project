@@ -14,6 +14,19 @@ const student = new Schema({
         type: Number , 
         required : true , 
     }
-});
+    ,
+    pervious_subjects :{
+        type:[],
+        required:false
+    }
+    , 
+    enrolled_subjects :{
+        type: [],
+        required : false
+    }
+
+},
+{timestamps:true}
+);
 
 export default model('student',student);

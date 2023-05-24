@@ -2,7 +2,7 @@ import departmentModel from "../models/department.js";
 import subjectModel from "../models/subject.js";
 
 export const index = async (req, res) => {
-    const subjects = await subjectModel.find({}, { name: 1 }).lean();
+    const subjects = await subjectModel.find( ).lean();
     res.render('subjects/index', { subjects });
 };
 
@@ -14,11 +14,12 @@ export const create = async (req, res) => {
 
 export const store = async (req, res) => {
     const { name, code, department, previous } = req.body;
-    await subjectModel.create({
+     await subjectModel.create({
         name,
         code,
         department,
-        previous
+        previous,
+        number_of_enrolled_students : 0
     });
     res.redirect('/subjects');
 };

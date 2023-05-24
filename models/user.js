@@ -22,6 +22,6 @@ const user = new Schema({
         default: 'student',
         required: true
     }
-});
+},{timestamps:true});
 
 export default model('user', user);

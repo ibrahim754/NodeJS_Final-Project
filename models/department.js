@@ -10,6 +10,6 @@ const department = new Schema({
        type: String,
         required: false, 
     }, 
-});
+},{timestamps:true});
 
 export default model('department', department);

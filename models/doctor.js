@@ -20,6 +20,6 @@ const doctor = new Schema({
         type: Schema.Types.ObjectId,
         required: false,
     }
-});
 
+},{timestamps:true});
 export default model('doctor', doctor);
