@@ -28,7 +28,7 @@ export const save = async (req, res) => {
  
 }
 export const reg = (req, res) => {
-  console.log("Student Loged in ");
+   console.log("Student Loged in ");
   res.render("students/reg");
 
 
@@ -47,10 +47,8 @@ export const view = async(req, res) => {
 
 
 }
-export const print = (req, res) => {
-  console.log("Students want print courses");
-  res.render("students/print");
-
+export const print = async (req, res) => {
+ res.render('students/enrolled'); 
 
 }
 export const show = async (req, res) => {

@@ -9,9 +9,12 @@ import authRouter from './routes/auth.js'
 import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import { validateToken } from "./middlewares/auth.js";
-
+ import   MethodOverrideOptions   from "method-override";
 // load environment variables to process.env
 dotenv.config();
+
+// to use put to for editing 
+
 
 // create connection 
 mongoose.connect(process.env.mongoConnectionUrl);
@@ -25,12 +28,13 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 // server configuration
 const app = express();
+app.use(MethodOverrideOptions('_method'))
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
-// To view the data in req.body
+ // To view the data in req.body
 app.use(express.urlencoded({ extended: true }));
 
 // Use cookie parser
